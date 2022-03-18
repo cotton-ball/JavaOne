@@ -50,7 +50,7 @@ public class Practice02 {
         System.out.print("화씨 온도를 입력하세요 : ");
         int fah = in.nextInt();
         double cel = (5.0/9.0)*((double)fah-32);
-        System.out.printf("섭씨온도는 %2f\n",cel);
+        System.out.println("섭씨온도는 "+cel);
 
         //07 4,5 약수 확인
 
