@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Practice02 {
     public static void main(String[] args) {
         // 01 (별찍기)
+        /*
         int k = 1;
         for (int i = 6; i > 0; i--) {
             for (int j = 0; j < 11; j++) {
@@ -13,6 +14,25 @@ public class Practice02 {
             }
             System.out.println();
             k += 2;
+        }
+
+         */
+
+        int star = 5;
+        for(int i = 0; i<star; i++){
+            for(int j = star-1; j>i; j--)
+                System.out.print(" ");
+            for(int j = 0; j<2*i+1; j++)
+                System.out.print("*");
+            System.out.println();
+        }
+
+        for(int i = 0; i < star; i++){
+            for(int j = 0; j<i; j++)
+                System.out.print(" ");
+            for(int j = 2*star-1; j>2*i; j--)
+                System.out.print("*");
+            System.out.println();
         }
 
         // 02 정수의 제곱값 출력
@@ -50,7 +70,7 @@ public class Practice02 {
         System.out.print("화씨 온도를 입력하세요 : ");
         int fah = in.nextInt();
         double cel = (5.0/9.0)*((double)fah-32);
-        System.out.println("섭씨온도는 "+cel);
+        System.out.printf("섭씨온도는 %2f\n",cel);
 
         //07 4,5 약수 확인
 
@@ -68,12 +88,35 @@ public class Practice02 {
 
 
         //08 정수를 입력받아 자리수 더하기
-        System.out.print("정수를 입력하세요 : ");
+        System.out.print("0~999 사이의 정수를 입력하세요 : ");
         int num = in.nextInt();
-        int sum = (num%100)+(num%10)+(num%1);
+        int sum = 0;
+
+        while(num!=0){
+            //num을 10으로 나눈 나머지를 sum에 더한다
+            sum += num%10;
+            //num을 10으로 나눈 값을 다시 num에 저장한다.
+            num /=10;
+        }
+        System.out.println("각 자리수의 합 : "+sum);
 
 
         //09 학점 이수 계산기
+        int major, general,refine;
+        System.out.print("전공 이수 학점: ");
+        major = in.nextInt();
+
+        System.out.print("교양 이수 학점: ");
+        refine = in.nextInt();
+
+        System.out.print("일반 이수 학점: ");
+        general = in.nextInt();
+
+        if(major >= 70){
+            if(refine+general >=80 || (refine >=30 && general >=30))
+                System.out.println("졸업 가능");
+        }
+        System.out.println("졸업 불가능");
     }
 
 
